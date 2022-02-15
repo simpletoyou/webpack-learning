@@ -4,7 +4,7 @@
  * @Author: simpletoyou
  * @Date: 2022-02-11 10:26:12
  * @LastEditors: simpletoyou
- * @LastEditTime: 2022-02-11 14:59:42
+ * @LastEditTime: 2022-02-15 14:26:29
  */
 
 const { resolve } = require('path')
@@ -24,7 +24,17 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader'
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  require('autoprefixer')
+                ]
+              }
+            }
+          }
         ]
       },
       {
@@ -37,7 +47,11 @@ module.exports = {
           // less-loader带less样式处理为css
           'less-loader'
         ]
-      }
+      },
+      // {
+      //   test: /\.(jpg|jpeg|png|gif)$/,
+      //   loader: 'url-loader'
+      // },
     ]
   },
   plugins: [

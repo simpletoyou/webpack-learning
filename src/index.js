@@ -4,14 +4,16 @@
  * @Author: simpletoyou
  * @Date: 2022-02-11 10:15:49
  * @LastEditors: simpletoyou
- * @LastEditTime: 2022-02-11 14:34:46
+ * @LastEditTime: 2022-02-14 14:13:03
  */
 
-import './index.css'
-import './index.less'
+const getData = require('./js/api');
+import { sum, square} from "./js/utils"
 
-function add(x = 1, y = 2) {
-  return x + y;
-}
+import './js/login'
+import './js/lg'
 
-console.log(add(5, 4))
+console.log(sum(4,5))
+console.log(square(7))
+
+console.log(getData())
