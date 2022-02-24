@@ -4,7 +4,7 @@
  * @Author: simpletoyou
  * @Date: 2022-02-14 10:31:15
  * @LastEditors: simpletoyou
- * @LastEditTime: 2022-02-15 11:43:58
+ * @LastEditTime: 2022-02-24 11:10:10
 -->
 
 # WEBPACK
@@ -48,6 +48,10 @@
     - less(less-loader) --> css --> css-loader
     - 兼容性操作，可利用该工具为不同样式针对浏览器添加前缀，或者对css样式进行重置处理，若需要在终端执行命令，需要下载postcss-cli依赖
     - 针对浏览器进行样式兼容：http://autoprefixer.github.io/
+      - 下载依赖 npm i autoprefixer -D
+
+    - postcss-preset-env(插件集合，包含很多功能，如果将#12345678转化为rgba格式，包含autoprefixer等)
+    - 预设 插件集合
 
 
 

@@ -4,11 +4,12 @@
  * @Author: simpletoyou
  * @Date: 2022-02-11 10:26:12
  * @LastEditors: simpletoyou
- * @LastEditTime: 2022-02-15 14:26:29
+ * @LastEditTime: 2022-02-24 11:29:55
  */
 
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const PostcssPresetEnv = require('postcss-preset-env');
 
 module.exports = {
   entry: './src/index.js',
@@ -29,9 +30,11 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [
-                  require('autoprefixer')
-                ]
+                // plugins: [
+                //   require('autoprefixer'),
+                //   require('postcss-preset-env'),
+                // ]
+                plugins:[PostcssPresetEnv()]
               }
             }
           }
@@ -40,7 +43,7 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          
+
           'style-loader',
           'css-loader',
           // 处理less文件需要下载less与less-loader
