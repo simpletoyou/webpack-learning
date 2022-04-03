@@ -66,4 +66,13 @@
     7 故 import引入的css文件内 相关代码不会被进行处理也就不会被添加前缀了
   解决方法：
     对css-loader设置相关属性
-    
+  
+  ## webpack打包图片
+  <!-- 
+    打包图片 file-loader
+    - img src
+      + 使用 require 导入图片，如果不配置 esModule 为 false， 则需要 .default导出
+      + 也可在配置中设置 esModule：false
+      + 第三种方法：采用import xx from 图片资源，此时可以直接使用xxx
+    - background url
+   -->

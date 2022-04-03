@@ -1,0 +1,7 @@
+.bgBox {
+    width: 500px;
+    height: 500px;
+    /* css-loader 在处理url 会将url转化为require语法， require在执行后会导出esModule */
+    background-image: url(../img/nice.png);
+    border: 1px solid #000;
+}

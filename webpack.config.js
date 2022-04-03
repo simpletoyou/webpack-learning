@@ -29,7 +29,8 @@ module.exports = {
             loader: 'css-loader',
             // 当css-loader在工作时，如果又匹配到需要进行css处理的代码，则往前再执行指定个数的loader
             options: {
-              importLoaders: 1
+              importLoaders: 1,
+              esModule: false
             }
           },
           // 对css进行前缀添加等
@@ -50,10 +51,18 @@ module.exports = {
         ]
         // 不同文件类型如果有相同配置，可以将配置写到postcss.config.js文件（不能重命名为其他名称！）
       },
-      // {
-      //   test: /\.(jpg|jpeg|png|gif)$/,
-      //   loader: 'url-loader'
-      // },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        // loader: 'file-loader'
+        // use: [{
+        //   loader: 'file-loader',
+        //   options: {
+        //     // 是否将导出的内容转化成为esModule
+        //     esModule: false
+        //   }
+        // }]
+        use: ['file-loader']
+      },
     ]
   },
   plugins: [
