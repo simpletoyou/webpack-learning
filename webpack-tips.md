@@ -53,6 +53,17 @@
     - postcss-preset-env(插件集合，包含很多功能，如果将#12345678转化为rgba格式，包含autoprefixer等)
     - 预设 插件集合
 
+    - 对不同类型样式表进行统一配置，新建postcss.config.js文件，书写相关配置代码，实现代码复用
 
-
-
+## import引入css，postcss-preset-env不生效
+   解释如下：
+    1 login.css @import语句引入了test.css
+    2 login.css 可以被匹配，当它被匹配到之后就是postcss-loader进行工作
+    3 基于当前代码 postcss-loader拿到了login.css中代码后 分析基于我们的筛选条件并不需要对相关代码进行额外处理
+    4 最终就将代码直接交给css-loader
+    5 此时 css-loader是可以处理 @import media url.. 这时候它又拿到了test.css文件，但是loader不会往前找配置处理
+    6 最终将处理好的css代码交给style-loader进行展示
+    7 故 import引入的css文件内 相关代码不会被进行处理也就不会被添加前缀了
+  解决方法：
+    对css-loader设置相关属性
+    

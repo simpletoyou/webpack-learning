@@ -25,19 +25,15 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader',
           {
-            loader: 'postcss-loader',
+            loader: 'css-loader',
+            // 当css-loader在工作时，如果又匹配到需要进行css处理的代码，则往前再执行指定个数的loader
             options: {
-              postcssOptions: {
-                // plugins: [
-                //   require('autoprefixer'),
-                //   require('postcss-preset-env'),
-                // ]
-                plugins:[PostcssPresetEnv()]
-              }
+              importLoaders: 1
             }
-          }
+          },
+          // 对css进行前缀添加等
+          'postcss-loader'
         ]
       },
       {
@@ -48,8 +44,11 @@ module.exports = {
           'css-loader',
           // 处理less文件需要下载less与less-loader
           // less-loader带less样式处理为css
+          // 将less转换为css，再对css进行处理
+          'postcss-loader',//在这里postcss-loader会根据配置文件postcss.config.js进行相关处理
           'less-loader'
         ]
+        // 不同文件类型如果有相同配置，可以将配置写到postcss.config.js文件（不能重命名为其他名称！）
       },
       // {
       //   test: /\.(jpg|jpeg|png|gif)$/,

@@ -9,7 +9,7 @@
 // 单独css文件处理
 // import 'style-loader!css-loader!../css/login.css'
 import '../css/login.css'
-import '../css/login.less'
+// import '../css/login.less'
 import '../css/test.css'
 
 function login() {
