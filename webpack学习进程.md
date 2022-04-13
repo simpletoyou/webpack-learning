@@ -10,10 +10,10 @@
  * postcss工作流程 ✅
  * postcss-loader处理兼容 ✅ 
  * importLoaders属性 ✅
- * file-loader处理图片
- * 设置图片名称与输出tscproj
- * url-loader处理图片
- * asset处理图片
+ * file-loader处理图片 ✅
+ * 设置图片名称与输出tscproj ✅
+ * url-loader处理图片 ✅
+ * asset处理图片 ✅
  * asset处理图标字体
  * webpack插件使用
  * html-webpack-plugin使用

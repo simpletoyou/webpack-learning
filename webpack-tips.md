@@ -76,3 +76,23 @@
       + 第三种方法：采用import xx from 图片资源，此时可以直接使用xxx
     - background url
    -->
+## 设置图片名称与输出
+  url-loader 处理图片
+  file-loader
+  将需要打包的图片资源拷贝到指定目录，访问时分开请求
+  url-loader
+  把当前需要打包的图片资源以base64 URI的方式加载到代码中
+  好处：使用file-loader会被打包图片做拷贝，在访问静态资源需要发起请求，使用url-loader则只需要一份main.js便可以获取到需要的资源，减少了请求次数
+  风险：如果图片资源过大，在首屏加载的情况，对页面加载时间会有一定影响
+  url-loader内部可以调用file-loader
+  limit
+## asset module type（webpack5 内置）
+  资源类型模块
+  简化loader使用或者替换
+  asset/resource
+  file-loader 拷贝目标资源到指定目录(输出路径)
+  asset/inline -url-loader 把相应资源添加到代码中 （所有图片资源转化为data uri）
+  asset/source
+  row-loader
+  asset 设置相关配置参数 进行所打包图片体积大小的阈值限制
+  parser 配置图片体积阈值
