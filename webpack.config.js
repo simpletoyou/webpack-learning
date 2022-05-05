@@ -9,7 +9,12 @@
 
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const PostcssPresetEnv = require('postcss-preset-env');
+const PostcssPresetEnv = require('postcss-preset-env')
+// 自动清除之前的打包文件
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+// webpack内置插件，DefinePlugin，可以实现在打包模板文件内定义全局常量
+const { DefinePlugin } = require('webpack')
+
 
 module.exports = {
   entry: './src/index.js',
@@ -69,9 +74,26 @@ module.exports = {
     // html-webpack-plugin
     // 功能：创建一个空白的html文件，自动引入打包输出的所有资源（JS、CSS等）
     // 需求：需要有结构的html文件
-    new HtmlWebpackPlugin({
-      // template：复制制定路径文件，病自动引入打包输出的所有资源
-      template: './src/index.html'
+    // 如果没有引用html-webpack-plugin插件，则打包后文件无index.html(该插件可以配置页面名称)
+    new HtmlWebpackPlugin(
+      {
+        // 修改打包后入口文件标签页名
+        title: 'html webpack plugin',
+        //   // template：复制制定路径文件，病自动引入打包输出的所有资源
+        // public为打包模块，确定后一般不做修改
+        template: './public/index.html'
+        // template: './src/index.html'
+      }),
+    new CleanWebpackPlugin(),
+    // BASE_URL需要多加一层引号
+    new DefinePlugin({
+      BASE_URL: '"./"'
     })
   ]
 }
+
+// 自定义插件（插件本质：类Class）
+// class MyPlugin {
+//   constructor(){}
+//   apply()
+// }
