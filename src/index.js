@@ -30,16 +30,25 @@
 
 // 以上命令可以整合为一个：npm i @babel/preset-env -D(指定命令为：npx babel src/index.js --out-dir build --presets=@babel/preset-env)
 
-import "core-js/stable"
-import "regenerator-runtime/runtime"
-const title = '前端babel学习'
-const foo = () => {
-    console.log('-----',title)
-}
-foo()
+// import "core-js/stable"
+// import "regenerator-runtime/runtime"
+// const title = '前端babel学习'
+// const foo = () => {
+//     console.log('-----',title)
+// }
+// foo()
 
-const p1 = new Promise((resolve, reject)=> {
-    console.log(111)
-})
-console.log(p1)
-console.log('aaaaaiiiiiiiiii');
+// const p1 = new Promise((resolve, reject)=> {
+//     console.log(111)
+// })
+// console.log(p1)
+// console.log(' HMR');
+import './title.js'
+
+// 需要实现热更新功能
+if(module.hot) {
+    // 指定模块热更新
+    module.hot.accept(['./title.js'],()=>{
+        console.log('titlejs模块已更新');
+    })
+}

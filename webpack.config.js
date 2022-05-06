@@ -23,6 +23,12 @@ module.exports = {
   entry: './src/index.js',
   mode: 'development',
   devtool:false,
+  // 开发阶段屏蔽browserslistrc筛选
+  target: 'web',
+  // 热更新功能开启，见title.js
+  devServer: {
+    hot: true
+  },
 
   output: {
     path: resolve(__dirname, 'dist'),
@@ -130,7 +136,7 @@ module.exports = {
         //   // template：复制制定路径文件，病自动引入打包输出的所有资源
         // public为打包模块，确定后一般不做修改
         // template: './public/index.html'
-        // template: './src/index.html'
+        template: './src/index.html'
       }),
     new CleanWebpackPlugin(),
     // BASE_URL需要多加一层引号

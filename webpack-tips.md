@@ -132,3 +132,6 @@
       - 每次编译成功之后都需要进行文件读写（dist）
       - live server（为vs插件，webpack也有）
       - 不能实现局部刷新（webpack server 热更新）
+
+## HMR 模块热替换功能
+  * devServer：{hot:true}
