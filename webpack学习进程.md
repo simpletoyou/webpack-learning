@@ -17,10 +17,10 @@
  * asset处理图标字体
  * webpack插件使用 ✅
  * html-webpack-plugin使用 ✅
- * copy-webpack-plugin
- * babel使用
- * babel-loader使用
- * polyfill配置
+ * copy-webpack-plugin ✅
+ * babel使用 ✅
+ * babel-loader使用 ✅
+ * polyfill配置 ✅
  * webpack-dev-server
  * webpack-dev-middleware使用
  * HMR功能使用

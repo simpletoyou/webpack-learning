@@ -18,6 +18,8 @@ const { DefinePlugin } = require('webpack')
 
 
 module.exports = {
+  // "build": "webpack --config webpack.config.js --watch"
+  watch: false,
   entry: './src/index.js',
   mode: 'development',
   devtool:false,
@@ -127,7 +129,7 @@ module.exports = {
         title: 'copy-webpack-plugin',
         //   // template：复制制定路径文件，病自动引入打包输出的所有资源
         // public为打包模块，确定后一般不做修改
-        template: './public/index.html'
+        // template: './public/index.html'
         // template: './src/index.html'
       }),
     new CleanWebpackPlugin(),

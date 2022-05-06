@@ -122,3 +122,13 @@
   * 按需配置
     - core.js/stable(ES 核心功能)
     - regenerator-tuntime/runtime（async，await等）
+
+## webpack-dev-server
+  * 开发模式
+    - watch
+    - live server
+    - 不足：
+      - 所有源代码都会重新编译
+      - 每次编译成功之后都需要进行文件读写（dist）
+      - live server（为vs插件，webpack也有）
+      - 不能实现局部刷新（webpack server 热更新）
