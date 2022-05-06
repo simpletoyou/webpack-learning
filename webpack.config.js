@@ -12,6 +12,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const PostcssPresetEnv = require('postcss-preset-env')
 // 自动清除之前的打包文件
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 // webpack内置插件，DefinePlugin，可以实现在打包模板文件内定义全局常量
 const { DefinePlugin } = require('webpack')
 
@@ -22,7 +23,7 @@ module.exports = {
 
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: 'js/main.js'
   },
   module: {
     rules: [
@@ -58,6 +59,16 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
+        type:'asset',
+        generator: {
+          filename: 'img/[name].[hash:3][ext]'
+        },
+        // parser: {
+        //   dataUrlCondition: {
+        //     maxSize: 30 * 1024
+        //   }
+        // }
+
         // loader: 'file-loader'
         // use: [{
         //   loader: 'file-loader',
@@ -66,8 +77,15 @@ module.exports = {
         //     esModule: false
         //   }
         // }]
-        use: ['file-loader']
+        // use: ['file-loader'],
       },
+      {
+        test: /\.(ttf|woff2?)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'font/[name].[hash:3][ext]'
+        }
+      }
     ]
   },
   plugins: [
@@ -78,7 +96,7 @@ module.exports = {
     new HtmlWebpackPlugin(
       {
         // 修改打包后入口文件标签页名
-        title: 'html webpack plugin',
+        title: 'copy-webpack-plugin',
         //   // template：复制制定路径文件，病自动引入打包输出的所有资源
         // public为打包模块，确定后一般不做修改
         template: './public/index.html'
@@ -88,6 +106,23 @@ module.exports = {
     // BASE_URL需要多加一层引号
     new DefinePlugin({
       BASE_URL: '"./"'
+    }),
+    // 配置copy-webpack-plugin，实现favicon.ico等资源从public到dist的拷贝
+    new CopyWebpackPlugin({
+      // 数组，可以配置多个拷贝项
+      patterns: [
+        {
+          from: 'public',
+          // 拷贝除指定文件外的其他所有文件
+          globOptions: {
+            // 需要写**/，表示从public目录下查找，否则报错（输出文件重复）
+            ignore: [
+              '**/index.html'
+            ]
+          }
+          // to: ''
+        }
+      ]
     })
   ]
 }

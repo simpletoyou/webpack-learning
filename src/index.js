@@ -19,3 +19,4 @@
 // console.log(getData())
 
 import './js/image'
+import './js/font'
