@@ -116,4 +116,9 @@
   * 相关配置文件
     - babel.config.js(json cjs mjs)
     - babelrc.json(js)
-    
+
+## polyfill
+  * @babel/polyfill(不建议直接安装，按需安装以下两个依赖 core.js regenerator)
+  * 按需配置
+    - core.js/stable(ES 核心功能)
+    - regenerator-tuntime/runtime（async，await等）

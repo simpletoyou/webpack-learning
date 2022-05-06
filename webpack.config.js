@@ -20,6 +20,7 @@ const { DefinePlugin } = require('webpack')
 module.exports = {
   entry: './src/index.js',
   mode: 'development',
+  devtool:false,
 
   output: {
     path: resolve(__dirname, 'dist'),
@@ -88,6 +89,8 @@ module.exports = {
       },
       {
         test: /.js$/,
+        // 不需要对依赖包做polyfill填充处理
+        exclude: /node_modules/,
         // 可以将相关babel配置整合在单独文件babel.config.js
         use: ['babel-loader']
         // use: [
