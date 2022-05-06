@@ -107,3 +107,13 @@
 ## copy-webpack-plugin
   * 依赖安装(使用@9版本)
   * 处理图标字体，需要配置loader
+
+## Babel
+  * 为什么需要babel：JSX TS ES6+ ----> 转化处理，实现浏览器平台直接使用（如：postcss 处理 js兼容）
+
+## babel-loader
+  * 需要配置相关插件以实现对js处理功能
+  * 相关配置文件
+    - babel.config.js(json cjs mjs)
+    - babelrc.json(js)
+    

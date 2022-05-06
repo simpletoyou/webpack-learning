@@ -85,6 +85,31 @@ module.exports = {
         generator: {
           filename: 'font/[name].[hash:3][ext]'
         }
+      },
+      {
+        test: /.js$/,
+        // 可以将相关babel配置整合在单独文件babel.config.js
+        use: ['babel-loader']
+        // use: [
+        //   {
+        //     loader: 'babel-loader',
+        //     // babel-loader需要配置相关参数，实现浏览器兼容对js进行转化处理
+        //     options: {
+        //       // plugins: [
+        //       //   '@babel/plugin-transform-arrow-functions',
+        //       //   '@babel/plugin-transform-block-scoping'
+        //       // ]
+        //       // presets: ['@babel/preset-env']
+        //       // 如果既有browserslistrc文件，又在这里进行配置，则以这里配置优先
+        //       presets: [
+        //         [
+        //           '@babel/preset-env',
+        //           // {targets:'chrome 101'}
+        //         ]
+        //       ]
+        //     }
+        //   }
+        // ]
       }
     ]
   },
@@ -107,7 +132,7 @@ module.exports = {
     new DefinePlugin({
       BASE_URL: '"./"'
     }),
-    // 配置copy-webpack-plugin，实现favicon.ico等资源从public到dist的拷贝
+    // 配置copy-webpack-plugin，实现favicon.ico等不需要打包的资源从public到dist的拷贝
     new CopyWebpackPlugin({
       // 数组，可以配置多个拷贝项
       patterns: [

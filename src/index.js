@@ -18,5 +18,19 @@
 
 // console.log(getData())
 
-import './js/image'
-import './js/font'
+// import './js/image'
+// import './js/font'
+
+
+// 在没有经过babel处理之前，打包后下方代码会作为拷贝输出
+// @babel/core (babel核心,将非js代码处理后交由浏览器识别)
+// @babel/cli (可以在命令行使用babel相关命令：npx babel src --out-dir build)
+// @babel/plugin-transform-arrow-functions. 使用命令：npx babel src/index.js --out-dir build --plugins=@babel/plugin-transform-arrow-functions（实现将箭头函数转化为普通函数）
+// @babel/plugin-transform-block-scoping(处理块作用域,将const转化为var等):npx babel src/index.js --out-dir build --plugins=@babel/plugin-transform-arrow-functions,@babel/plugin-transform-block-scoping
+
+// 以上命令可以整合为一个：npm i @babel/preset-env -D(指定命令为：npx babel src/index.js --out-dir build --presets=@babel/preset-env)
+const title = '前端babel学习'
+const foo = () => {
+    console.log('-----',title)
+}
+foo()
