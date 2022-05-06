@@ -44,6 +44,8 @@
 // console.log(p1)
 // console.log(' HMR');
 import './title.js'
+import Vue from 'vue';
+import App from './App.vue'
 
 // 需要实现热更新功能
 if(module.hot) {
@@ -52,3 +54,7 @@ if(module.hot) {
         console.log('titlejs模块已更新');
     })
 }
+
+new Vue({
+    render: h => h(App)
+}).$mount('#root')

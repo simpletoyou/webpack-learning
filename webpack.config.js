@@ -15,6 +15,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 // webpack内置插件，DefinePlugin，可以实现在打包模板文件内定义全局常量
 const { DefinePlugin } = require('webpack')
+// vue-loader@15版本(16\17有其他修改，建议就是14或者15版本)
+const VueLoaderPlugin = require("vue-loader/lib/plugin")
 
 
 module.exports = {
@@ -121,6 +123,10 @@ module.exports = {
         //     }
         //   }
         // ]
+      },
+      {
+        test: /\.vue$/,
+        use: ['vue-loader']
       }
     ]
   },
@@ -159,7 +165,9 @@ module.exports = {
           // to: ''
         }
       ]
-    })
+    }),
+
+    new VueLoaderPlugin()
   ]
 }
 

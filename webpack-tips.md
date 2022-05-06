@@ -135,3 +135,14 @@
 
 ## HMR 模块热替换功能
   * devServer：{hot:true}
+  * 相关文件配置 module.hot
+
+## 实现Vue组件支持热更新
+  * 实现webpack能够打包编译vue组件
+    - vue@2.6.14
+    - vue-template-compiler@2.6.14
+    - 配置webpack.config.js处理vue文件
+  * 编译后，实现HMR功能
+  * vue-loader
+    - vue-loader@14,直接实现热更新
+    - vue-loader@15+，需要在webpack.config.js进行配置
