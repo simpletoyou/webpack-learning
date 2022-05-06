@@ -146,3 +146,15 @@
   * vue-loader
     - vue-loader@14,直接实现热更新
     - vue-loader@15+，需要在webpack.config.js进行配置
+
+## output-path
+  * publicPath: index.html内部的引用路径
+    - 域名+publicPath+fileName
+
+## devServer（更新，无下述配置项）
+  * publicPath: 指定本地服务所在目录
+  * contentBase： 我们打包之后的资源如果说依赖于其他的资源，此时就告知去哪找
+  * 详细配置见：https://webpack.js.org/configuration/dev-server/#root
+
+## proxy
+  * 

@@ -21,14 +21,14 @@
  * babel使用 ✅
  * babel-loader使用 ✅
  * polyfill配置 ✅
- * webpack-dev-server
- * webpack-dev-middleware使用
- * HMR功能使用
+ * webpack-dev-server ✅
+ * webpack-dev-middleware使用 ✅
+ * HMR功能使用 ✅
  * React组件支持热更新
- * Vue组件支持热更新
- * output中的path
- * devserver中的path
- * devServer常用配置
+ * Vue组件支持热更新 ✅
+ * output中的path ✅
+ * devserver中的path（版本更新，详看官方文档）
+ * devServer常用配置（详看官方文档）
  * proxy代理设置
  * resolve模块解析规则
  * sourse-map作用

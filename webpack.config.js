@@ -24,17 +24,30 @@ module.exports = {
   watch: false,
   entry: './src/index.js',
   mode: 'development',
-  devtool:false,
+  devtool: false,
   // 开发阶段屏蔽browserslistrc筛选
   target: 'web',
-  // 热更新功能开启，见title.js
-  devServer: {
-    hot: true
-  },
+
 
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: 'js/main.js'
+    filename: 'js/main.js',
+    // publicPath: '/lg'
+    // publicPath: ''
+  },
+
+  // 热更新功能开启，见title.js
+  devServer: {
+    hot: true,
+    // devServer版本没有，无publicPath、contentBase、watchContentBase配置
+    // publicPath: '/lg',
+    proxy: {
+      '/api': {
+        target: 'https://api.github.com',
+        pathRewrite: {"^/api":""},
+        changeOrigin:true
+      }
+    }
   },
   module: {
     rules: [
@@ -70,7 +83,7 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        type:'asset',
+        type: 'asset',
         generator: {
           filename: 'img/[name].[hash:3][ext]'
         },
