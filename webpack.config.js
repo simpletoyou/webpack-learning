@@ -17,6 +17,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { DefinePlugin } = require('webpack')
 // vue-loader@15版本(16\17有其他修改，建议就是14或者15版本)
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
+const path = require('path')
 
 
 module.exports = {
@@ -27,6 +28,15 @@ module.exports = {
   devtool: false,
   // 开发阶段屏蔽browserslistrc筛选
   target: 'web',
+
+  // 配置模块解析规则
+  resolve: {
+    extendsions: [".js",".json",".ts",".vue",".jsx"],
+    alias: {
+      // 为项目路径配置别名
+      '@':path.resolve(__dirname,"src")
+    }
+  },
 
 
   output: {
