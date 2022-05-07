@@ -87,7 +87,12 @@ module.exports = {
         use: [
 
           'style-loader',
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2
+            }
+          },
           // 处理less文件需要下载less与less-loader
           // less-loader带less样式处理为css
           // 将less转换为css，再对css进行处理

@@ -24,17 +24,17 @@
  * webpack-dev-server ✅
  * webpack-dev-middleware使用 ✅
  * HMR功能使用 ✅
- * React组件支持热更新
+ * React组件支持热更新 (略)
  * Vue组件支持热更新 ✅
  * output中的path ✅
  * devserver中的path（版本更新，详看官方文档）
- * devServer常用配置（详看官方文档）
+ * devServer常用配置（版本更新，详看官方文档）
  * proxy代理设置 ✅
  * resolve模块解析规则 ✅
  * sourse-map作用 ✅
- * devtool详细说明
- * ts-loader编译TS
- * babel-loader编译TS
- * 加载vue文件
- * 区分打包环境
- * 合并生产环境配置
+ * devtool详细说明 ✅
+ * ts-loader编译TS (略)
+ * babel-loader编译TS (略)
+ * 加载vue文件 ✅
+ * 区分打包环境 ✅
+ * 合并生产环境配置 ✅
