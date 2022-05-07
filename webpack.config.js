@@ -24,19 +24,24 @@ module.exports = {
   // "build": "webpack --config webpack.config.js --watch"
   watch: false,
   entry: './src/index.js',
+  // 当设置mode为“development”，devtool属性默认值为“eval”
   mode: 'development',
-  devtool: false,
+  // 浏览器控制台设置默认开始source-map
+  // 设置devtoo为“eval-source-map”，则不会多生成main.js.map文件，而是到map相关信息以base64方式存放在main.js的eval内
+  // 如果没有map文件，则减少资源请求速度，如果是多资源情况下，会导致一次性请求量太多，需要权衡取舍
+  // 还有其他配置值，详见文档
+  devtool: 'inline-source-map',
   // 开发阶段屏蔽browserslistrc筛选
   target: 'web',
 
-  // 配置模块解析规则
-  resolve: {
-    extendsions: [".js",".json",".ts",".vue",".jsx"],
-    alias: {
-      // 为项目路径配置别名
-      '@':path.resolve(__dirname,"src")
-    }
-  },
+  // 配置模块解析规则(当前版本下报错，需要作修改)
+  // resolve: {
+  //   extendsions: [".js",".json",".ts",".vue",".jsx"],
+  //   alias: {
+  //     // 为项目路径配置别名
+  //     '@':path.resolve(__dirname,"src")
+  //   }
+  // },
 
 
   output: {

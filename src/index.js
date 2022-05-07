@@ -43,18 +43,26 @@
 // })
 // console.log(p1)
 // console.log(' HMR');
-import './title.js'
-import Vue from 'vue';
-import App from './App.vue'
+// import './title.js'
+// import Vue from 'vue';
+// import App from './App.vue'
 
-// 需要实现热更新功能
-if(module.hot) {
-    // 指定模块热更新
-    module.hot.accept(['./title.js'],()=>{
-        console.log('titlejs模块已更新');
-    })
-}
+// // 需要实现热更新功能
+// if(module.hot) {
+//     // 指定模块热更新
+//     module.hot.accept(['./title.js'],()=>{
+//         console.log('titlejs模块已更新');
+//     })
+// }
 
-new Vue({
-    render: h => h(App)
-}).$mount('#root')
+// new Vue({
+//     render: h => h(App)
+// }).$mount('#root')
+
+
+import title from "./title";
+import foo from "./utils";
+
+console.log('入口js')
+console.log(title);
+foo()

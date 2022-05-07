@@ -1,2 +1,3 @@
 module.exports = "前端开发"
-console.log('这里是titlejs------122222');
+console.log('-------这里是titlejs------');
+console.log(aa)

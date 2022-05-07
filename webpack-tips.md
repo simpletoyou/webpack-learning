@@ -156,5 +156,10 @@
   * contentBase： 我们打包之后的资源如果说依赖于其他的资源，此时就告知去哪找
   * 详细配置见：https://webpack.js.org/configuration/dev-server/#root
 
+## resolve配置（待完善）
+
 ## proxy
-  * 
+  * webpack.config.js配置
+
+## source-map作用
+  * 将打包后文件映射到源文件位置（映射 =》 结合查找规则，在调试的时候可以定位到源代码中的信息）
